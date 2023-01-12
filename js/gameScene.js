@@ -28,7 +28,7 @@ class GameScene extends Phaser.Scene {
 
   create ()
   {
-    this.timer = this.time.delayedCall(6000);
+    this.timer = this.time.delayedCall(21000);
     this.fallingLetter = this.physics.add.group()
     this.timedEvent = this.time.addEvent({ delay: 500, callback: this.onEvent, callbackScope: this, loop: true });
 
@@ -45,7 +45,7 @@ class GameScene extends Phaser.Scene {
   }
 
   update() {
-    if (this.timer.getElapsedSeconds() >= 5){
+    if (this.timer.getElapsedSeconds() >= 20){
       this.timer.remove()
       this.scene.switch('gameOver')
     }
