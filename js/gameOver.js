@@ -1,33 +1,33 @@
 class GameOver extends Phaser.Scene {
   constructor () {
     super({ key: 'gameOver' })
-
-    this.startButton = null
+    this.score = 0 
   }
 
-  init () {
+  init (data) {
+    // Initialise the passed data
     console.log('Starting gameOver scene')
+    this.score = data.score
   }
 
   preload () {
-    this.load.image('start', 'assets/start.png')
   }
 
   create () {
+    //delete previous scene and add the score
     this.scene.remove('gameScene')
-    const startButton = this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'start').setInteractive()
-    startButton.on('pointerdown', () => this.clickButton())
+    this.add.text(
+      this.cameras.main.centerX, 
+      this.cameras.main.centerY, 
+      this.score, 
+      { fontFamily: 'Arial', fontSize: 64, color: '#ffffff' }
+    );
   }
 
   update () {
   }
 
   end () {
-  }
-
-  clickButton () {
-    console.log('Moving to game scene')
-    this.scene.switch('gameScene')
   }
 }
 

@@ -2,7 +2,7 @@ import TitleScene from './titleScene.js'
 import GameScene from './gameScene.js'
 import GameOver from './gameOver.js'
 
-// Our scenes
+// Set-up the scenes
 const titleScene = new TitleScene()
 const gameScene = new GameScene()
 const gameOver = new GameOver()
@@ -20,11 +20,11 @@ const config = {
 }
 const game = new Phaser.Game(config)
 
-// load scenes
+// preload scenes
 game.scene.add('titleScene', titleScene)
 game.scene.add('gameScene', gameScene)
 game.scene.add('gameOver', gameOver)
 
-// start title
+// start title scene
 game.scene.start('titleScene')
 
